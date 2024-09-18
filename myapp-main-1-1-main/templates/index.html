@@ -3,7 +3,6 @@
 {% block title %}NETNOOK{% endblock %}
 
 {% block extra_head %}
-<!-- Additional head content here -->
 {% endblock %}
 
 {% block content %}
@@ -11,15 +10,10 @@
 <div class="p-0 m-0">
     <section class="relative min-h-screen w-full flex items-center justify-center">
         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80 z-10"></div>
-        
-        <!-- Slideshow Container -->
         <div class="relative w-full h-full text-center z-20">
             <div class="relative w-full h-full">
-                <!-- Image Slide -->
                 <img id="slideImage" class="w-full h-full object-cover" src="{% static 'slideimg/blackpanther2.png' %}" alt="Slide Image" style="max-height: 100vh;">
             </div>
-
-            <!-- Slide Navigation -->
             <button id="prevSlide" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-4 rounded-full hover:bg-opacity-75 transition duration-300 ease-in-out shadow-lg hover:shadow-xl flex items-center justify-center z-30">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -41,8 +35,9 @@
             <button type="submit" class="bg-gradient-to-r from-red-500 to-red-700 text-white p-3 rounded-r-md hover:from-red-600 hover:to-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 transition duration-300 transform hover:scale-105 shadow-lg">Search</button>
         </form>
     </div> {% endcomment %}
+    
     <!-- Top pick Section -->
-    <div class="mb-8 p-4"> <!-- เพิ่ม padding รอบกริด -->
+    <div class="mb-8 p-4">
         <h2 class="text-2xl font-bold text-red-600 mb-4">
             Top pick <span class="text-white">TV shows and movies just for you</span>
         </h2>
@@ -50,9 +45,13 @@
             {% for i in "123456" %}
             <div class="relative group">
                 <a href="{% url 'toppick' i %}" class="block">
-                    <!-- ปรับขนาดของรูปภาพและใช้ object-cover -->
                     <img src="{% static 'images/POSTER'|add:i|add:'.png' %}" alt="Movie {{ i }}" class="w-3/4 h-auto mx-auto object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl group-hover:ring-4 group-hover:ring-red-500">
                 </a>
+                <button class="absolute bottom-1 right-16 bg-transparent text-red-600 p-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 favorite-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </button>                
             </div>
             {% endfor %}
         </div>
@@ -74,25 +73,29 @@
         let currentIndex = 0;
 
         function updateImage() {
-            // Start fading out
             slideImage.style.transition = 'opacity 0.5s ease-in-out';
             slideImage.style.opacity = 0; 
-            
-            // Change image source and then fade in
             setTimeout(() => {
                 slideImage.src = imagePaths[currentIndex];
-                slideImage.style.opacity = 1; // Fade in
-            }, 500); // Duration matches fade-out time
+                slideImage.style.opacity = 1; 
+            }, 500);
         }
 
         document.getElementById('nextSlide').addEventListener('click', function () {
-            currentIndex = (currentIndex + 1) % imagePaths.length; // Loop to the first image
+            currentIndex = (currentIndex + 1) % imagePaths.length; 
             updateImage();
         });
 
         document.getElementById('prevSlide').addEventListener('click', function () {
-            currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length; // Loop to the last image
+            currentIndex = (currentIndex - 1 + imagePaths.length) % imagePaths.length; 
             updateImage();
+        });
+
+        const favoriteButtons = document.querySelectorAll('.favorite-btn');
+        favoriteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+
+            });
         });
     });
 </script>

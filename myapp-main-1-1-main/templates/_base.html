@@ -28,12 +28,10 @@
 </head>
 <body style="background-color: rgb(20, 20, 20);" class="text-white font-sans">
     
-    <!-- Loading Screen -->
     <div id="loading">
         <div class="rounded-full h-20 w-20 spinner animate-ping"></div>
     </div>
     
-    <!-- Main content -->
     <nav class="bg-transparent backdrop-blur-lg p-4 flex flex-col lg:flex-row justify-between items-center shadow-lg fixed top-0 left-0 right-0 z-30">
         <div class="flex items-center mb-4 lg:mb-0">
             <a href="{% url 'index' %}">
@@ -41,21 +39,24 @@
             </a>
         </div>
     
-        <div class="flex justify-center space-x-6 items-center mb-4 lg:mb-0">
-            <a href="{% url 'index' %}" class="text-white hover:text-red-500 transition duration-300">Home</a>
-            <a href="#" class="text-white hover:text-red-500 transition duration-300">About</a>
-            <a href="{% url 'login' %}" class="text-white hover:text-red-500 transition duration-300">Login</a>
-        </div>
-    
-        <div class="w-full lg:w-auto">
-            <form action="{% url 'search_movies' %}" method="get" class="flex justify-center p-4 rounded-md shadow-md">
-                <input type="text" name="q" placeholder="Search for a movie..." class="w-full lg:w-auto p-2 border border-gray-300 rounded-l-md text-black focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" required>
-                <button type="submit" class="bg-gradient-to-r from-red-500 to-red-700 text-white px-1 py-1 text-sm rounded-r-md hover:from-red-600 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-300 transform hover:scale-105 shadow-md">
-                    Search
-                </button>
-            </form>
+        <div class="flex flex-col lg:flex-row lg:space-x-6 lg:items-center w-full lg:w-auto">
+            <div class="flex flex-col lg:flex-row lg:space-x-6 lg:items-center w-full lg:w-auto mb-4 lg:mb-0">
+                <form action="{% url 'search_movies' %}" method="get" class="flex justify-center p-4 rounded-md shadow-md w-full lg:w-auto">
+                    <input type="text" name="q" placeholder="Search for a movie..." class="w-full lg:w-auto p-2 border border-gray-300 rounded-l-md text-black focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" required>
+                    <button type="submit" class="bg-gradient-to-r from-red-500 to-red-700 text-white px-1 py-1 text-sm rounded-r-md hover:from-red-600 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-300 transform hover:scale-105 shadow-md">
+                        Search
+                    </button>
+                </form>
+                
+                <div class="flex lg:space-x-6 items-center mt-4 lg:mt-0 lg:ml-6">
+                    <a href="{% url 'index' %}" class="text-white hover:text-red-500 transition duration-300">Home</a>
+                    <a href="#" class="text-white hover:text-red-500 transition duration-300">About</a>
+                    <a href="{% url 'login' %}" class="text-white hover:text-red-500 transition duration-300">Login</a>
+                </div>
+            </div>
         </div>
     </nav>
+    
     
     
     
@@ -66,10 +67,9 @@
     </div>
     
     <script>
-        // Simulate loading delay
         setTimeout(function() {
             document.getElementById('loading').style.display = 'none';
-        }, 1000); // Adjust time in milliseconds (1000ms = 1 second)
+        }, 1000); 
     </script>
     
     

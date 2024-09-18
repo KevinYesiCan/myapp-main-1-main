@@ -3,7 +3,6 @@
 {% block title %}Movie {{ movie.title }} Detail{% endblock %}
 
 {% block content %}
-<img src="{% static 'images/' %}{{ movie.actor_image }}" alt="Actor Image">
 
 <div class="relative bg-neutral-950 text-white">
     <div class="relative w-full h-[500px] overflow-hidden">
@@ -13,36 +12,146 @@
         </video>
     </div>
 
-    <div class="container mx-auto p-8 relative">
+    <div class="container mx-auto p-8">
         <div class="flex flex-col lg:flex-row gap-8">
             <div class="lg:w-2/3">
                 <h1 class="text-5xl font-extrabold mb-6 border-b border-red-600 pb-4">{{ movie.title }}</h1>
-                <p class="text-lg leading-relaxed mb-6">{{ movie.description }}</p>
-                <div class="text-lg space-y-4">
+                
+                <p class="text-lg leading-relaxed mb-6">
+                    {{ movie.description }}
+                </p>
+    
+                <div class="text-lg space-y-4 mb-8">
                     <p><span class="font-semibold">Release Date:</span> {{ movie.release_date }}</p>
                     <p><span class="font-semibold">Director:</span> {{ movie.director }}</p>
                     <p><span class="font-semibold">Genre:</span> {{ movie.genre }}</p>
+                    <p><span class="font-semibold">Main Cast:</span> {{ movie.main_cast }}</p>
+                </div>
+    
+                <div>
+                    <img src="{% static 'images/' %}{{ movie.actor_image }}" class="rounded-lg shadow-lg object-cover w-full h-96">
                 </div>
 
-                <div class="relative mt-8">
-                    <div class="overflow-hidden relative h-64">
-                        <div id="imageSlider" class="flex transition-transform duration-500 ease-in-out">
-                            <img src="{% static 'images/image1.jpg' %}" class="w-full h-full object-cover">
-                            <img src="{% static 'images/image2.jpg' %}" class="w-full h-full object-cover">
-                            <img src="{% static 'images/image3.jpg' %}" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <button id="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2">
-                        <!-- SVG for previous button -->
-                    </button>
-                    <button id="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2">
-                        <!-- SVG for next button -->
-                    </button>
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
                 </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image2 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info2 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image3 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info3 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image4 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info4 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image5 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info5 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image6 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info6 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image7 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info7 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image8 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info8 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image9 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info9 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image10 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info10 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+                
+                <div class="mt-8">
+                    <img src="{% static 'images/' %}{{ movie.actor_image11 }}" class="rounded-lg shadow-lg object-cover w-full h-96">
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-sl font-bold mb-6 text-white">{{ movie.info11 }}</h3>
+                    <p class="text-lg leading-relaxed">
+                        {{ movie.overview }}
+                    </p>
+                </div>
+
             </div>
-
-            <div class="lg:w-1/3 bg-neutral-800 rounded-lg p-6">
+    
+            <div class="bg-neutral-800 rounded-lg p-6" style="width: 400px; height: 900px;">
                 <h2 class="text-2xl font-semibold mb-6 text-red-500 border-b border-red-600 pb-4">Actors</h2>
                 <div class="grid grid-cols-2 gap-6">
                     {% for actor in movie.actors %}
@@ -55,6 +164,8 @@
             </div>
         </div>
     </div>
+    
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
